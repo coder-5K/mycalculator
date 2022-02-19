@@ -13,11 +13,12 @@ def mult(x, y):          # function for multiplication
 def divide(x, y):        # function for division
     return x / y
 
-operators = ['+', '-', '*', '/']                           # list of operators the user can use
+operators = ['+', '-', '*', '/']  # list of operators the user can use
 
-while True:                                                # main loop so user can start over if they want
+# main outer loop so user can start over if they want
+while True:
 
-    while True:                                            #loop to get first number. checks to make sure its a float
+    while True:    # inner loop to get first number. checks to make sure its a float
         try:
             num_1 = float(input('Enter a number: '))
         except:
@@ -26,7 +27,8 @@ while True:                                                # main loop so user c
         else:
             break
 
-    while True:                                            # loop to get user input. Checks to make sure they type in + - * /
+    # loop to get user input. Checks to make sure they type in + - * /
+    while True:
         operator_1 = input('What operator would you like to use? +, -, *, or /: ')
         if operator_1 not in operators:
             print('This is not one of your choices')
@@ -34,7 +36,8 @@ while True:                                                # main loop so user c
         else:
             break
 
-    while True:                                            # loop to get 2nd number. checks to makre sure its a float
+    # inner loop to get 2nd number. checks to makre sure its a float
+    while True:
         try:
             num_2 = float(input('Enter another number: '))
             if (operator_1 == '/') and (num_2 == 0):
@@ -61,14 +64,14 @@ while True:                                                # main loop so user c
 
     while True:                                             # Loop to see if user wants to make another calculation
         more_operations = input('Would you like to do another calculation? Y or N: ')
-        if more_operations == 'Y':
+        if (more_operations == 'Y') or ( more_operations == 'y'):  # breaks them out of this loop to do more calculations
             break
-        elif more_operations == 'N':
-            sys.exit()
+        elif (more_operations == 'N') or (more_operations == 'n'):
+            sys.exit()                                             # ends the programs
         else:
             print('That was not a choice')
             continue
 
-    continue
+    continue  #brings user back to the beginning of the main loop to do more calculations
 
 
